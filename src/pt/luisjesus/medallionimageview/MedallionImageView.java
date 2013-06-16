@@ -3,18 +3,19 @@ package pt.luisjesus.medallionimageview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MedallionImageView extends ImageView {
+public class MedallionImageView extends View {
 	private int borderWidth = 3;
 	private int viewWidth;
 	private int viewHeight;
@@ -22,7 +23,8 @@ public class MedallionImageView extends ImageView {
 	private Paint paint;
 	private Paint paintBorder;
 	private int borderColor;
-
+	private Drawable d;
+	
 	public MedallionImageView(Context context) {
 		super(context);
 		setup();
@@ -39,6 +41,9 @@ public class MedallionImageView extends ImageView {
 			   try {
 				   borderColor = a.getInteger(R.styleable.MedallionImageView_borderColor, borderColor);
 			       borderWidth = a.getInteger(R.styleable.MedallionImageView_borderWidth, 0);
+			       d = a.getDrawable(R.styleable.MedallionImageView_image);
+			       
+
 			   } finally {
 			       a.recycle();
 			   }
@@ -48,6 +53,21 @@ public class MedallionImageView extends ImageView {
 
 	public MedallionImageView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		
+		 TypedArray a = context.getTheme().obtainStyledAttributes(
+			        attrs,
+			        R.styleable.MedallionImageView,
+			        0, 0);
+
+			   try {
+				   borderColor = a.getInteger(R.styleable.MedallionImageView_borderColor, borderColor);
+			       borderWidth = a.getInteger(R.styleable.MedallionImageView_borderWidth, 0);
+			       d = a.getDrawable(R.styleable.MedallionImageView_image);
+
+			   } finally {
+			       a.recycle();
+			   }
+			   
 		setup();
 	}
 
@@ -80,10 +100,7 @@ public class MedallionImageView extends ImageView {
 
 	private void loadBitmap()
 	{
-		BitmapDrawable bitmapDrawable = (BitmapDrawable) this.getDrawable();
-
-		if(bitmapDrawable != null)
-			image = bitmapDrawable.getBitmap();
+		image = ((BitmapDrawable)d).getBitmap();
 	}
 
 	@Override
