@@ -18,11 +18,11 @@ Simple copy MedallionImageView package and the attrs.xml into your project. Belo
         android:layout_height="match_parent">
 
     <pt.luisjesus.medallionimageview.MedallionImageView
-        android:id="@+id/medallionImageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/image"
-        miv:borderColor="@android:color/black"
+        android:id="@+id/medallionImageView"
+        android:layout_width="128dip"
+        android:layout_height="128dip"
+        miv:image="@drawable/image1"
+        miv:borderColor="@android:color/white"
         miv:borderWidth="8" />
 
     </LinearLayout>
@@ -32,5 +32,5 @@ Simple copy MedallionImageView package and the attrs.xml into your project. Belo
 Known Issues
 -------------------------
 
-* Currently the scale types used on this view are useless. It always scales itself to fit within the defined bounds.
 * The border width does not take into account the dips of the device.
+* When using big sizes sometimes the image is badly stretched.
