@@ -47,7 +47,7 @@ public class MedallionImageView extends View {
 			        0, 0);
 
 			   try {
-				   borderColor = a.getInteger(R.styleable.MedallionImageView_borderColor, borderColor);
+				   borderColor = a.getColor(R.styleable.MedallionImageView_borderColor, borderColor);
 			       borderWidth = a.getInteger(R.styleable.MedallionImageView_borderWidth, borderWidth);
 			       d = a.getDrawable(R.styleable.MedallionImageView_image);
 			       
@@ -68,7 +68,7 @@ public class MedallionImageView extends View {
 			        0, 0);
 
 			   try {
-				   borderColor = a.getInteger(R.styleable.MedallionImageView_borderColor, borderColor);
+				   borderColor = a.getColor(R.styleable.MedallionImageView_borderColor, borderColor);
 			       borderWidth = a.getInteger(R.styleable.MedallionImageView_borderWidth, borderWidth);
 			       d = a.getDrawable(R.styleable.MedallionImageView_image);
 
@@ -94,6 +94,12 @@ public class MedallionImageView extends View {
 	public void setBorderColor(int borderColor)
 	{       
 		this.borderColor = borderColor;
+		preloadPaints();
+		this.invalidate();
+	}
+	
+	public void setBitmap(Bitmap d){
+		this.image = d;
 		preloadPaints();
 		this.invalidate();
 	}
