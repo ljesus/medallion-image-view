@@ -13,6 +13,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * Medallion Image View is a Custom View built for Android that supports displaying a rounded image with a border. 
+ * GitHub Project at {@link https://github.com/ljesus/medallion-image-view}
+ * @author Lu’s Jesus
+ */
+
 public class MedallionImageView extends View {
 	private int viewWidth;
 	private int viewHeight;
@@ -81,12 +87,14 @@ public class MedallionImageView extends View {
 	public void setBorderWidth(int borderWidth)
 	{
 		this.borderWidth = borderWidth;
+		preloadPaints();
 		this.invalidate();
 	}
 
 	public void setBorderColor(int borderColor)
 	{       
 		this.borderColor = borderColor;
+		preloadPaints();
 		this.invalidate();
 	}
 
@@ -100,8 +108,6 @@ public class MedallionImageView extends View {
 	{
 		if(image !=null)
 		{
-			
-			
 			if(viewWidth >= viewHeight){
 				canvas.drawCircle(viewWidth / 2 , viewHeight / 2 , viewHeight / 2, paintBorder);
 				canvas.drawCircle(viewWidth / 2 , viewHeight / 2 , viewHeight / 2 - borderWidth, paint);
@@ -109,7 +115,6 @@ public class MedallionImageView extends View {
 				canvas.drawCircle(viewWidth / 2 , viewHeight / 2 , viewWidth / 2, paintBorder);
 				canvas.drawCircle(viewWidth / 2 , viewHeight / 2 , viewWidth / 2 - borderWidth, paint);
 			}
-
 		}    
 	}
 

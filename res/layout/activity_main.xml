@@ -3,11 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
     <pt.luisjesus.medallionimageview.MedallionImageView
         android:id="@+id/medallionImageView1"
         android:layout_width="128dip"
