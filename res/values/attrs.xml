@@ -1,7 +1,7 @@
 <resources>
 
     <declare-styleable name="MedallionImageView">
-        <attr name="borderWidth" format="integer" />
+        <attr name="borderWidth" format="dimension" />
         <attr name="borderColor" format="string" />
         <attr name="image" format="integer" />
     </declare-styleable>

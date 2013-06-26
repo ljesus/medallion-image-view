@@ -10,6 +10,6 @@
         android:layout_margin="8dip"
         miv:image="@drawable/image1"
         miv:borderColor="@android:color/black"
-        miv:borderWidth="8" />
+        miv:borderWidth="8dip" />
 
 </LinearLayout>

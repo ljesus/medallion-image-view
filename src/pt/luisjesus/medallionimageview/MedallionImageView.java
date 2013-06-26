@@ -30,7 +30,7 @@ public class MedallionImageView extends View {
 	
 	//Attributes
 	private Drawable d;
-	private int borderWidth = 3;
+	private float borderWidth = 3;
 	private int borderColor = android.R.color.darker_gray;
 
 	public MedallionImageView(Context context) {
@@ -48,7 +48,7 @@ public class MedallionImageView extends View {
 
 			   try {
 				   borderColor = a.getColor(R.styleable.MedallionImageView_borderColor, borderColor);
-			       borderWidth = a.getInteger(R.styleable.MedallionImageView_borderWidth, borderWidth);
+			       borderWidth = a.getDimension(R.styleable.MedallionImageView_borderWidth, borderWidth);
 			       d = a.getDrawable(R.styleable.MedallionImageView_image);
 			       
 
@@ -69,7 +69,7 @@ public class MedallionImageView extends View {
 
 			   try {
 				   borderColor = a.getColor(R.styleable.MedallionImageView_borderColor, borderColor);
-			       borderWidth = a.getInteger(R.styleable.MedallionImageView_borderWidth, borderWidth);
+			       borderWidth = a.getDimension(R.styleable.MedallionImageView_borderWidth, borderWidth);
 			       d = a.getDrawable(R.styleable.MedallionImageView_image);
 
 			   } finally {
@@ -130,8 +130,8 @@ public class MedallionImageView extends View {
 		int width = measureWidth(widthMeasureSpec);
 		int height = measureHeight(heightMeasureSpec, widthMeasureSpec);        
 
-		viewWidth = width - (borderWidth *2);
-		viewHeight = height - (borderWidth*2);
+		viewWidth = (int) (width - (borderWidth *2));
+		viewHeight = (int) (height - (borderWidth*2));
 
 		if(viewWidth <= 0){
 			viewWidth = image.getWidth();
