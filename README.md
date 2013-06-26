@@ -23,7 +23,7 @@ Simple copy MedallionImageView package and the attrs.xml into your project. Belo
         android:layout_height="128dip"
         miv:image="@drawable/image1"
         miv:borderColor="@android:color/white"
-        miv:borderWidth="8" />
+        miv:borderWidth="8dip" />
 
     </LinearLayout>
 
@@ -32,5 +32,4 @@ Simple copy MedallionImageView package and the attrs.xml into your project. Belo
 Known Issues
 -------------------------
 
-* The border width does not take into account the dips of the device.
 * When using big sizes sometimes the image is badly stretched.
